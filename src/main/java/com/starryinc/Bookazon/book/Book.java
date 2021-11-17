@@ -1,5 +1,6 @@
 package com.starryinc.Bookazon.book;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.starryinc.Bookazon.author.Author;
 import com.starryinc.Bookazon.category.Category;
 import com.starryinc.Bookazon.image.Image;
@@ -31,6 +32,7 @@ public class Book {
             generator = "book_sequence"
     )
     private Long id;
+    private Long sellerId;
     private String name;
     private Integer quantity;
     private Double unitPrice;
@@ -94,4 +96,28 @@ public class Book {
             )
     )
     private List<Image> images;
+
+    public Book(
+                Long sellerId,
+                String name,
+                List<Author> authors,
+                List<Tag> tags,
+                Integer quantity,
+                Double unitPrice,
+                String bookCondition,
+                String description,
+                Double latitude,
+                Double longitude) {
+
+        this.sellerId = sellerId;
+        this.name = name;
+        this.authors = authors;
+        this.tags = tags;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.bookCondition = bookCondition;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 }

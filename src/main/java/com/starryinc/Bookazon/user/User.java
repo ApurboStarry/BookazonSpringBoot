@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,17 +28,9 @@ public class User {
             generator = "user_sequence"
     )
     private Long userId;
+
     private String email;
     private String username;
     private String password;
     private Boolean isAdmin;
-
-    @OneToMany(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name = "seller_id",
-            referencedColumnName = "userId"
-    )
-    private List<Book> books;
 }

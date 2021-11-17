@@ -25,7 +25,10 @@ public class Author {
             generator = "author_sequence"
     )
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String photoUrl;
+
+    public Author(String name) {
+        this.name = name;
+    }
 }
